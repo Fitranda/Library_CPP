@@ -1,11 +1,18 @@
 #include <iostream>
 #include "Modul.h"
 #include "buku.cpp"
+#include "anggota.cpp"
+#include "transaksi.cpp"
 using namespace std;
 int main() {
     int pil;
-    string namaFile = "perpus.txt";
-    CBuku db(namaFile);
+    string namaFilebuku = "perpus.txt";
+    CBuku db(namaFilebuku);
+    string namaFileanggota = "anggota.txt";
+    CAnggota dbanggota(namaFileanggota);
+    string namaFilepeminjam = "peminjam.txt";
+    string namaFiledetail = "detail.txt";
+    CTransaksi dbtrans(namaFilepeminjam,namaFiledetail,namaFileanggota,namaFiledetail);
     cout <<"Aplikasi Management Perpus";
     do
     {
@@ -24,6 +31,17 @@ int main() {
             db.menuBuku();
             break;
         
+        case 2:
+            dbanggota.menuAnggota();
+            break;
+        case 3:
+            dbtrans.trpeminjam();
+            break;
+
+        case 4:
+            dbtrans.trpengembalian();
+            break;
+
         case 5:
             cout << "Keluar \n";
             break;
